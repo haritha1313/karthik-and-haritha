@@ -1,26 +1,210 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Vibrant palette inspired by Kerala mural art & temple colors */
+  --color-ivory: #FFF9F0;
+  --color-ivory-dark: #F5EBD8;
+  --color-cream: #FEF3E2;
+  --color-maroon: #9B1B30;
+  --color-maroon-light: #C62828;
+  --color-maroon-dark: #7B1020;
+  --color-gold: #D4A017;
+  --color-gold-light: #F0C040;
+  --color-gold-dark: #B8860B;
+  --color-emerald: #1B7A3D;
+  --color-emerald-light: #2E9650;
+  --color-emerald-dark: #145A2C;
+  --color-brown: #3E2723;
+  --color-brown-light: #6D4C41;
+  --color-saffron: #E65100;
+  --color-saffron-light: #FF8F00;
+  --color-turmeric: #F9A825;
+  --color-pink: #D81B60;
+  --color-pink-light: #F06292;
+  --color-teal: #00695C;
+  --color-red: #C62828;
+  --color-orange: #EF6C00;
+  --color-temple-red: #B71C1C;
+  --font-display: var(--font-display);
+  --font-script: var(--font-script);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ivory);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Gold shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-dark) 0%,
+    var(--color-gold-light) 25%,
+    var(--color-turmeric) 50%,
+    var(--color-gold-light) 75%,
+    var(--color-gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Vibrant gradient backgrounds */
+.bg-festive {
+  background: linear-gradient(135deg, #FFF9F0 0%, #FEF3E2 30%, #FFF0D4 60%, #FFF9F0 100%);
+}
+
+.bg-temple {
+  background: linear-gradient(180deg, #9B1B30 0%, #7B1020 100%);
+}
+
+.bg-leaf {
+  background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 50%, #FFF9F0 100%);
+}
+
+.bg-saffron-wash {
+  background: linear-gradient(135deg, #FFF3E0 0%, #FEF9EF 50%, #FFF9F0 100%);
+}
+
+/* New Rich Image Backgrounds */
+.bg-kanjivaram {
+  background-image: url('/images/kanjivaram-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-diya-texture {
+  background-image: url('/images/diya-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.bg-party-texture {
+  background-image: url('/images/party-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.bg-banana-leaf-texture {
+  background-image: url('/images/banana-leaf-bg.png');
+  background-size: cover;
+  background-position: center bottom;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(155, 27, 48, 0.15);
+}
+
+.glass-panel-dark {
+  background: rgba(62, 39, 35, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-card {
+  background: rgba(255, 249, 240, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Glow effect for important elements */
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(212, 160, 23, 0.3)); }
+  50% { filter: drop-shadow(0 0 12px rgba(212, 160, 23, 0.6)); }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Colorful card styles */
+.card-festive {
+  background: white;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  border-radius: 1rem;
+}
+
+.card-festive::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-saffron), var(--color-maroon), var(--color-gold));
+  z-index: -1;
+}
+
+/* Rangoli dot pattern */
+.rangoli-dots {
+  background-image: radial-gradient(var(--color-gold) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-gold), var(--color-saffron));
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-turmeric);
+  color: var(--color-brown);
 }
