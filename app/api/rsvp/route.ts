@@ -4,7 +4,7 @@ import { appendToSheet } from "@/lib/google-sheets";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, guests, attending, dietary, message } = body;
+    const { name, email, guests, attending, accommodation, message } = body;
 
     if (!name || !email || !attending) {
       return Response.json(
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const timestamp = new Date().toISOString();
 
     await appendToSheet([
-      [timestamp, name, email, attending, guests, dietary, message],
+      [timestamp, name, email, attending, guests, Array.isArray(accommodation) ? accommodation.join(", ") : "", message],
     ]);
 
     return Response.json({ success: true });

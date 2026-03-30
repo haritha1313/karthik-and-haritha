@@ -5,6 +5,7 @@ import Countdown from "./Countdown";
 import TempleArch from "./ui/TempleArch";
 import MarigoldString from "./ui/MarigoldString";
 import DiyaIcon from "./ui/DiyaIcon";
+import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -159,14 +160,7 @@ export default function Hero() {
             className="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full flex items-center gap-3 text-white font-bold hover:bg-white/30 hover:text-gold-light transition-all duration-300 group cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.3)] border border-white/40"
           >
             <span className="text-xs sm:text-sm tracking-[0.2em] uppercase text-shadow-sm">Join the Celebration</span>
-            <svg
-              className="w-5 h-5 animate-bounce"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <ChevronDown className="w-5 h-5 animate-bounce" strokeWidth={3} />
           </a>
         </motion.div>
       </div>

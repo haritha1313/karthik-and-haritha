@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import EventToggle, { EventType } from "./ui/EventToggle";
+import { Plane, Car, MapPin, Globe, Hotel } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  DATA                                                               */
@@ -51,8 +52,8 @@ const travelData = {
       },
     ],
     accommodation: {
-      title: "Accommodation? We've Got You!",
-      detail: "Stay near the wedding venue is arranged for all guests. You don't need to book anything — just RSVP before June 30, 2026 so we can plan for everyone.",
+      title: "Accommodation",
+      detail: "Stay for the wedding day is planned by us — just mark that you need it when you RSVP. If you're staying longer and have your own travel plans, feel free to DM us for suggestions on where to stay!",
     },
     explore: {
       title: "Explore Kerala",
@@ -160,8 +161,8 @@ const travelData = {
       },
     ],
     accommodation: {
-      title: "Accommodation in Bangalore",
-      detail: "For the reception, you'll need to arrange your own stay. Bangalore has plenty of hotels across all budgets near the venue. We'll share specific recommendations closer to the date!",
+      title: "Accommodation",
+      detail: "Stay for the reception day is planned by us — just mark that you need it when you RSVP. If you're staying longer and have your own travel plans, feel free to DM us for suggestions on where to stay!",
     },
     explore: {
       title: "Explore Bangalore",
@@ -224,30 +225,15 @@ const travelData = {
 /*  ICONS                                                              */
 /* ------------------------------------------------------------------ */
 
+const iconMap: Record<string, React.FC<{ className?: string }>> = {
+  plane: (props) => <Plane {...props} strokeWidth={1.5} />,
+  car: (props) => <Car {...props} strokeWidth={1.5} />,
+  taxi: (props) => <MapPin {...props} strokeWidth={1.5} />,
+};
+
 function IconForType({ type }: { type: string }) {
-  switch (type) {
-    case "plane":
-      return (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-        </svg>
-      );
-    case "car":
-      return (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 17h.01M16 17h.01M3 11l1.5-5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.5L21 11M3 11h18M3 11v6a1 1 0 001 1h1m14-7v6a1 1 0 01-1 1h-1" />
-        </svg>
-      );
-    case "taxi":
-      return (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      );
-    default:
-      return null;
-  }
+  const Icon = iconMap[type];
+  return Icon ? <Icon className="w-6 h-6" /> : null;
 }
 
 /* ------------------------------------------------------------------ */
@@ -298,9 +284,7 @@ export default function TravelContent() {
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                   isWedding ? "bg-saffron/20 text-saffron" : "bg-gold/20 text-gold-dark"
                 }`}>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
+                  <Plane className="w-5 h-5" strokeWidth={2} />
                 </div>
                 <h2 className="font-display text-3xl sm:text-4xl text-maroon font-bold">
                   Getting There
@@ -340,10 +324,7 @@ export default function TravelContent() {
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                   isWedding ? "bg-gold/20 text-gold-dark" : "bg-saffron/20 text-saffron"
                 }`}>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" strokeWidth="1.5" />
-                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" strokeWidth="1.5" />
-                  </svg>
+                  <Globe className="w-5 h-5" strokeWidth={1.5} />
                 </div>
                 <h2 className="font-display text-3xl sm:text-4xl text-maroon font-bold">
                   {isWedding ? "International Guests" : "Flying In?"}
@@ -380,9 +361,7 @@ export default function TravelContent() {
                 className="bg-gradient-to-r from-turmeric/20 via-saffron/10 to-gold/20 rounded-2xl p-8 sm:p-10 border-2 border-gold/20 text-center"
               >
                 <div className="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-7 h-7 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
+                  <Hotel className="w-7 h-7 text-gold-dark" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-2xl sm:text-3xl text-maroon font-bold mb-3">
                   {data.accommodation.title}

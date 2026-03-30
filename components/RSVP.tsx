@@ -4,12 +4,14 @@ import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./ui/SectionWrapper";
 import DiyaIcon from "./ui/DiyaIcon";
+import { ChevronDown, Check } from "lucide-react";
 
 interface RSVPData {
   name: string;
   email: string;
   guests: string;
   attending: string;
+  accommodation: string[];
   message: string;
 }
 
@@ -19,6 +21,7 @@ export default function RSVP() {
     email: "",
     guests: "1",
     attending: "",
+    accommodation: [],
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -191,6 +194,89 @@ export default function RSVP() {
               </div>
             </div>
 
+            {/* Accommodation */}
+            {form.attending && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                className="overflow-hidden"
+              >
+                <label className="block text-sm font-bold text-brown mb-3 tracking-wide">
+                  Do you need accommodation?
+                </label>
+                <p className="text-xs text-brown-light mb-3">
+                  Stay for the wedding and/or reception days is planned by us. Just check what you need!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  {(form.attending === "Both"
+                    ? ["Wedding (Kerala)", "Reception (Bangalore)"]
+                    : form.attending.includes("Wedding")
+                      ? ["Wedding (Kerala)"]
+                      : ["Reception (Bangalore)"]
+                  ).map((option) => {
+                    const checked = form.accommodation.includes(option);
+                    return (
+                      <label
+                        key={option}
+                        className={`flex items-center gap-3 px-5 py-4 rounded-xl border-2 cursor-pointer transition-all ${
+                          checked
+                            ? "border-gold bg-gold/10 shadow-sm"
+                            : "border-gold/20 bg-white/60 hover:border-gold/40"
+                        }`}
+                      >
+                        <div className={`w-5 h-5 rounded flex items-center justify-center border-2 transition-colors ${
+                          checked ? "bg-gold border-gold" : "border-gold/30 bg-white"
+                        }`}>
+                          {checked && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                        </div>
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => {
+                            setForm({
+                              ...form,
+                              accommodation: checked
+                                ? form.accommodation.filter((a) => a !== option)
+                                : [...form.accommodation, option],
+                            });
+                          }}
+                          className="sr-only"
+                        />
+                        <span className="font-medium text-brown text-sm">{option}</span>
+                      </label>
+                    );
+                  })}
+                  <label
+                    className={`flex items-center gap-3 px-5 py-4 rounded-xl border-2 cursor-pointer transition-all ${
+                      form.accommodation.includes("Not needed")
+                        ? "border-gold bg-gold/10 shadow-sm"
+                        : "border-gold/20 bg-white/60 hover:border-gold/40"
+                    }`}
+                  >
+                    <div className={`w-5 h-5 rounded flex items-center justify-center border-2 transition-colors ${
+                      form.accommodation.includes("Not needed") ? "bg-gold border-gold" : "border-gold/30 bg-white"
+                    }`}>
+                      {form.accommodation.includes("Not needed") && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                    </div>
+                    <input
+                      type="checkbox"
+                      checked={form.accommodation.includes("Not needed")}
+                      onChange={() => {
+                        setForm({
+                          ...form,
+                          accommodation: form.accommodation.includes("Not needed")
+                            ? form.accommodation.filter((a) => a !== "Not needed")
+                            : ["Not needed"],
+                        });
+                      }}
+                      className="sr-only"
+                    />
+                    <span className="font-medium text-brown text-sm">Not needed</span>
+                  </label>
+                </div>
+              </motion.div>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Guests */}
               <div>
@@ -209,9 +295,7 @@ export default function RSVP() {
                     ))}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-brown">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <ChevronDown className="w-5 h-5" strokeWidth={2} />
                   </div>
                 </div>
               </div>

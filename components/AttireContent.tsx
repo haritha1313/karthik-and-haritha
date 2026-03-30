@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import EventToggle, { EventType } from "./ui/EventToggle";
 import AttireIllustration from "./ui/AttireIllustrations";
+import { Sparkles, UserRound } from "lucide-react";
 
 const attireData = {
   wedding: {
@@ -194,9 +195,7 @@ export default function AttireContent() {
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                     isWedding ? "bg-pink/15" : "bg-pink/20"
                   }`}>
-                    <svg className="w-6 h-6 text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
+                    <Sparkles className="w-6 h-6 text-pink" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-display text-3xl text-maroon font-bold">Women</h3>
                 </div>
@@ -241,9 +240,7 @@ export default function AttireContent() {
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                     isWedding ? "bg-gold/15" : "bg-saffron/15"
                   }`}>
-                    <svg className="w-6 h-6 text-gold-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
+                    <UserRound className="w-6 h-6 text-gold-dark" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-display text-3xl text-maroon font-bold">Men</h3>
                 </div>

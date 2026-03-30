@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Clock, MapPin, ExternalLink } from "lucide-react";
 
 const events = [
   {
@@ -59,27 +60,6 @@ export default function Events() {
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
             
-            {/* Show section header only on the first event block */}
-            {i === 0 && (
-              <div className="text-center mb-16">
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  className="text-maroon tracking-[0.4em] uppercase text-sm font-bold mb-4 drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]"
-                >
-                  Save the Dates
-                </motion.p>
-                <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-maroon-dark font-bold mb-6 drop-shadow-[0_2px_4px_rgba(255,249,240,0.5)]">
-                  Our Celebrations
-                </h2>
-                <div className="h-1 w-24 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
-                <p className="text-brown text-lg max-w-md mx-auto font-medium">
-                  We would be honoured to have you join us for our wedding festivities.
-                </p>
-              </div>
-            )}
-
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,9 +87,7 @@ export default function Events() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className={`${event.infoCardStyle} rounded-2xl p-5 border backdrop-blur-md flex flex-col justify-start`}>
                     <div className="flex items-center gap-2 mb-2">
-                      <svg className={`w-5 h-5 ${event.accent}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <Clock className={`w-5 h-5 ${event.accent}`} strokeWidth={2} />
                       <p className={`font-bold ${event.textColor} text-sm tracking-wide`}>{event.timeLabel}</p>
                     </div>
                     <p className={`${event.textMuted} font-medium text-sm`}>{event.time}</p>
@@ -117,10 +95,7 @@ export default function Events() {
 
                   <div className={`${event.infoCardStyle} rounded-2xl p-5 border backdrop-blur-md flex flex-col justify-start items-start`}>
                     <div className="flex items-center gap-2 mb-2">
-                      <svg className={`w-5 h-5 ${event.accent}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
+                      <MapPin className={`w-5 h-5 ${event.accent}`} strokeWidth={2} />
                       <p className={`font-bold ${event.textColor} text-sm tracking-wide`}>Where</p>
                     </div>
                     <p className={`${event.textMuted} font-medium text-sm`}>{event.venue}</p>
@@ -136,9 +111,7 @@ export default function Events() {
                           : "bg-[#7B1020] text-white hover:bg-[#5a0c18]"
                       } transition-colors font-bold text-xs px-4 py-1.5 rounded-full shadow-sm`}
                     >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                      <ExternalLink className="w-3.5 h-3.5" strokeWidth={2} />
                       View on Maps
                     </a>
                   </div>
