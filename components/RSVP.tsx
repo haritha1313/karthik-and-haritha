@@ -330,7 +330,7 @@ export default function RSVP() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full py-5 rounded-xl bg-gradient-to-r from-maroon to-maroon-light text-white font-display text-2xl font-bold shadow-[0_10px_20px_rgba(155,27,48,0.3)] hover:shadow-[0_15px_30px_rgba(155,27,48,0.4)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full py-5 rounded-xl bg-gradient-to-r from-maroon to-maroon-light text-gold-light font-display text-2xl font-bold shadow-[0_10px_20px_rgba(155,27,48,0.3)] hover:shadow-[0_15px_30px_rgba(155,27,48,0.4)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
             >
               {status === "loading" ? "Confirming..." : "Send RSVP"}
             </button>

@@ -9,7 +9,7 @@ const events = [
     subtitle: "Traditional Hindu Wedding",
     date: "August 30, 2026",
     timeLabel: "Muhurtham",
-    time: "9:28 AM to 11:34 AM",
+    time: "9:20 AM to 11:40 AM",
     venue: "Shilpa Convention Center",
     address: "Injakkadu, Kerala",
     mapQuery: "Shilpa+Convention+Center+Injakkadu+Kerala",

@@ -282,7 +282,7 @@ export default function TravelContent() {
             <div className="mx-auto max-w-5xl">
               <div className="flex items-center gap-3 mb-8">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  isWedding ? "bg-saffron/20 text-saffron" : "bg-gold/20 text-gold-dark"
+                  isWedding ? "bg-gold/20 text-gold-dark" : "bg-maroon/20 text-maroon"
                 }`}>
                   <Plane className="w-5 h-5" strokeWidth={2} />
                 </div>
@@ -299,11 +299,11 @@ export default function TravelContent() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.08 }}
                     className={`bg-white rounded-2xl border-2 p-6 hover:shadow-md transition-all ${
-                      isWedding ? "border-saffron/10 hover:border-saffron/30" : "border-gold/10 hover:border-gold/30"
+                      isWedding ? "border-gold/10 hover:border-gold/30" : "border-maroon/10 hover:border-maroon/30"
                     }`}
                   >
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${
-                      isWedding ? "bg-saffron/15 text-saffron" : "bg-gold/15 text-gold-dark"
+                      isWedding ? "bg-gold/15 text-gold-dark" : "bg-maroon/15 text-maroon"
                     }`}>
                       <IconForType type={info.icon} />
                     </div>
@@ -317,12 +317,12 @@ export default function TravelContent() {
 
           {/* International */}
           <section className={`px-4 sm:px-6 lg:px-8 py-10 ${
-            isWedding ? "bg-gradient-to-r from-gold/5 via-saffron/5 to-gold/5" : "bg-gradient-to-r from-saffron/5 via-gold/5 to-saffron/5"
+            isWedding ? "bg-gradient-to-r from-gold/5 via-saffron/5 to-gold/5" : "bg-gradient-to-r from-maroon/5 via-gold/5 to-maroon/5"
           }`}>
             <div className="mx-auto max-w-5xl">
               <div className="flex items-center gap-3 mb-8">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  isWedding ? "bg-gold/20 text-gold-dark" : "bg-saffron/20 text-saffron"
+                  isWedding ? "bg-gold/20 text-gold-dark" : "bg-maroon/20 text-maroon"
                 }`}>
                   <Globe className="w-5 h-5" strokeWidth={1.5} />
                 </div>
@@ -339,10 +339,10 @@ export default function TravelContent() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.08 }}
                     className={`bg-white rounded-2xl border-2 p-6 ${
-                      isWedding ? "border-gold/10" : "border-saffron/10"
+                      isWedding ? "border-gold/10" : "border-maroon/10"
                     }`}
                   >
-                    <h3 className={`font-semibold text-lg mb-2 ${isWedding ? "text-gold-dark" : "text-saffron"}`}>
+                    <h3 className={`font-semibold text-lg mb-2 ${isWedding ? "text-gold-dark" : "text-maroon"}`}>
                       {tip.title}
                     </h3>
                     <p className="text-brown-light text-sm leading-relaxed">{tip.detail}</p>
