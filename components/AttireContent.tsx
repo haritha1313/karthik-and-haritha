@@ -147,146 +147,117 @@ export default function AttireContent() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Vibe banner */}
-            <div className={`text-center mb-10 py-6 px-4 rounded-2xl border-2 ${
-              isWedding
-                ? "bg-gradient-to-r from-saffron/10 via-gold/5 to-saffron/10 border-gold/20"
-                : "bg-gradient-to-r from-pink/10 via-purple-500/5 to-pink/10 border-pink/20"
-            }`}>
-              <h2 className="font-display text-2xl sm:text-3xl text-maroon font-bold mb-2">
-                {data.vibe}
-              </h2>
-              <p className="text-brown-light text-sm max-w-md mx-auto">{data.vibeDesc}</p>
+            {/* ── Vibe + Colors ── two-column grid */}
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 mb-14 items-start">
+              <div>
+                <h2 className="font-display text-2xl sm:text-3xl text-maroon font-bold mb-2">
+                  {data.vibe}
+                </h2>
+                <p className="text-brown-light text-sm leading-relaxed">{data.vibeDesc}</p>
+              </div>
+              <div>
+                <h3 className="text-xs tracking-[0.2em] uppercase text-brown-light font-medium mb-4">
+                  Colours That Work
+                </h3>
+                <div className="flex flex-wrap gap-4">
+                  {data.colors.map((swatch, i) => (
+                    <motion.div
+                      key={swatch.label}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.04 }}
+                      className="text-center"
+                    >
+                      <div
+                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-sm ring-4 ring-white ${swatch.border}`}
+                        style={{ backgroundColor: swatch.color }}
+                      />
+                      <p className="text-xs font-medium text-brown mt-2">{swatch.label}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Color palette */}
-            <section className="mb-10">
-              <h3 className="text-center font-display text-xl text-maroon font-bold mb-5">
-                Colours That Work
-              </h3>
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
-                {data.colors.map((swatch, i) => (
+            {/* ── Divider ── */}
+            <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-14" />
+
+            {/* ── Women ── image grid */}
+            <div className="mb-14">
+              <div className="flex items-center gap-3 mb-8">
+                <Sparkles className="w-5 h-5 text-pink" strokeWidth={1.5} />
+                <h3 className="font-display text-3xl text-maroon font-bold">Women</h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+                {data.women.map((item, i) => (
                   <motion.div
-                    key={swatch.label}
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.04 }}
-                    className="text-center"
+                    key={item.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.06 }}
                   >
-                    <div
-                      className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-md ring-4 ring-white ${swatch.border}`}
-                      style={{ backgroundColor: swatch.color }}
-                    />
-                    <p className="text-xs font-medium text-brown mt-2">{swatch.label}</p>
+                    <div className="relative h-56 sm:h-64 rounded-xl overflow-hidden mb-3">
+                      <AttireIllustration type={item.illustration} className="w-full h-full" />
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <h4 className="font-bold text-brown text-lg">{item.title}</h4>
+                      <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${
+                        isWedding ? "bg-gold/15 text-gold-dark" : "bg-pink/15 text-pink"
+                      }`}>
+                        {item.tag}
+                      </span>
+                    </div>
+                    <p className="text-brown-light text-sm leading-relaxed">{item.desc}</p>
                   </motion.div>
                 ))}
               </div>
-            </section>
+            </div>
 
-            {/* Women & Men cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-              {/* Women */}
-              <div className={`rounded-2xl p-6 sm:p-8 border-2 ${
-                isWedding
-                  ? "bg-gradient-to-br from-pink/10 via-saffron/5 to-ivory border-pink/15"
-                  : "bg-gradient-to-br from-pink/15 via-pink-light/5 to-ivory border-pink/20"
-              }`}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                    isWedding ? "bg-pink/15" : "bg-pink/20"
-                  }`}>
-                    <Sparkles className="w-6 h-6 text-pink" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-3xl text-maroon font-bold">Women</h3>
-                </div>
-
-                <div className="space-y-4">
-                  {data.women.map((item, i) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.08 }}
-                      className="bg-white/60 rounded-xl p-5 border border-pink/10"
-                    >
-                      <div className="flex gap-4">
-                        <div className="shrink-0 w-20 h-24 sm:w-24 sm:h-28 rounded-xl overflow-hidden shadow-sm border border-pink/10">
-                          <AttireIllustration type={item.illustration} className="w-full h-full" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                            <h4 className="font-bold text-maroon">{item.title}</h4>
-                            <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${
-                              isWedding ? "bg-gold/15 text-gold-dark" : "bg-pink/15 text-pink"
-                            }`}>
-                              {item.tag}
-                            </span>
-                          </div>
-                          <p className="text-brown-light text-sm leading-relaxed">{item.desc}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+            {/* ── Men ── image grid */}
+            <div className="mb-14">
+              <div className="flex items-center gap-3 mb-8">
+                <UserRound className="w-5 h-5 text-gold-dark" strokeWidth={1.5} />
+                <h3 className="font-display text-3xl text-maroon font-bold">Men</h3>
               </div>
 
-              {/* Men */}
-              <div className={`rounded-2xl p-6 sm:p-8 border-2 ${
-                isWedding
-                  ? "bg-gradient-to-br from-gold/10 via-saffron/5 to-ivory border-gold/15"
-                  : "bg-gradient-to-br from-saffron/10 via-gold/5 to-ivory border-saffron/15"
-              }`}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                    isWedding ? "bg-gold/15" : "bg-saffron/15"
-                  }`}>
-                    <UserRound className="w-6 h-6 text-gold-dark" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-3xl text-maroon font-bold">Men</h3>
-                </div>
-
-                <div className="space-y-4">
-                  {data.men.map((item, i) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.08 }}
-                      className="bg-white/60 rounded-xl p-5 border border-gold/10"
-                    >
-                      <div className="flex gap-4">
-                        <div className="shrink-0 w-20 h-24 sm:w-24 sm:h-28 rounded-xl overflow-hidden shadow-sm border border-gold/10">
-                          <AttireIllustration type={item.illustration} className="w-full h-full" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                            <h4 className="font-bold text-maroon">{item.title}</h4>
-                            <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${
-                              isWedding ? "bg-gold/15 text-gold-dark" : "bg-saffron/15 text-saffron"
-                            }`}>
-                              {item.tag}
-                            </span>
-                          </div>
-                          <p className="text-brown-light text-sm leading-relaxed">{item.desc}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+                {data.men.map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.06 }}
+                  >
+                    <div className="relative h-56 sm:h-64 rounded-xl overflow-hidden mb-3">
+                      <AttireIllustration type={item.illustration} className="w-full h-full" />
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <h4 className="font-bold text-brown text-lg">{item.title}</h4>
+                      <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${
+                        isWedding ? "bg-gold/15 text-gold-dark" : "bg-saffron/15 text-saffron"
+                      }`}>
+                        {item.tag}
+                      </span>
+                    </div>
+                    <p className="text-brown-light text-sm leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
-            {/* Tips & Avoid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-              <div className={`rounded-2xl p-6 border-2 ${
-                isWedding ? "bg-gold/5 border-gold/15" : "bg-saffron/5 border-saffron/15"
-              }`}>
+            {/* ── Divider ── */}
+            <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-12" />
+
+            {/* ── Tips & Avoid ── bordered grid boxes */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+              <div className="border border-gold/15 rounded-lg p-6">
                 <h3 className="font-display text-xl text-maroon font-bold mb-4 flex items-center gap-2">
-                  <span className="text-gold-dark text-lg">&#10003;</span> Tips
+                  <span className="text-gold-dark">&#10003;</span> Tips
                 </h3>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3">
                   {data.tips.map((tip, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-brown-light">
+                    <li key={i} className="flex items-start gap-3 text-sm text-brown-light">
                       <span className="text-gold mt-0.5 shrink-0">&#9753;</span>
                       {tip}
                     </li>
@@ -294,16 +265,14 @@ export default function AttireContent() {
                 </ul>
               </div>
 
-              <div className="bg-red/5 border-2 border-red/10 rounded-2xl p-6">
+              <div className="border border-maroon/10 rounded-lg p-6">
                 <h3 className="font-display text-xl text-maroon font-bold mb-4 flex items-center gap-2">
-                  <span className="text-red text-lg">&#10007;</span> Please Avoid
+                  <span className="text-maroon">&#10007;</span> Please Avoid
                 </h3>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3">
                   {data.avoid.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-brown-light">
-                      <div className="w-5 h-5 rounded-full bg-red/10 flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="text-red text-xs">&#10007;</span>
-                      </div>
+                    <li key={i} className="flex items-start gap-3 text-sm text-brown-light">
+                      <span className="text-maroon mt-0.5 shrink-0">&#10007;</span>
                       {item}
                     </li>
                   ))}
@@ -311,8 +280,9 @@ export default function AttireContent() {
               </div>
             </div>
 
-            {/* General note */}
-            <div className="bg-gradient-to-r from-turmeric/15 via-saffron/10 to-gold/15 rounded-2xl p-8 border-2 border-gold/20 text-center">
+            {/* ── Closing note ── */}
+            <div className="text-center py-6">
+              <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-8" />
               <p className="text-saffron font-bold text-base">
                 Most importantly — wear something that makes you feel joyful and celebratory!
               </p>
