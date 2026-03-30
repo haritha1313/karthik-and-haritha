@@ -3,8 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+
+const HOME_SECTION_IDS = ["events", "rsvp"];
+const SECTION_SENTINEL_Y = 150;
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -21,41 +25,62 @@ export default function Navigation() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 60);
+    const getHomeSectionHash = () => {
+      let currentHash = "";
 
-      // Super simple logic to update hash on scroll for the home page sections
-      if (window.location.pathname === "/") {
-        const sections = ["events", "rsvp"];
-        let current = "";
-        
-        for (const section of sections) {
-          const el = document.getElementById(section);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            // If the section is near the top of the viewport
-            if (rect.top <= 150 && rect.bottom >= 150) {
-              current = `#${section}`;
-            }
-          }
+      for (const sectionId of HOME_SECTION_IDS) {
+        const sectionElement = document.getElementById(sectionId);
+
+        if (!sectionElement) {
+          continue;
         }
-        
-        // If we're at the very top, clear the hash
-        if (window.scrollY < 100) {
-          current = "";
+
+        const rect = sectionElement.getBoundingClientRect();
+        if (
+          rect.top <= SECTION_SENTINEL_Y &&
+          rect.bottom >= SECTION_SENTINEL_Y
+        ) {
+          currentHash = `#${sectionId}`;
         }
-        
-        setActiveHash(current);
+      }
+
+      if (window.scrollY < 100) {
+        return "";
+      }
+
+      return currentHash;
+    };
+
+    const syncHomeHash = (currentHash: string) => {
+      const nextUrl = currentHash
+        ? `${window.location.pathname}${window.location.search}${currentHash}`
+        : `${window.location.pathname}${window.location.search}`;
+
+      if (
+        nextUrl !==
+        window.location.pathname + window.location.search + window.location.hash
+      ) {
+        window.history.replaceState(window.history.state, "", nextUrl);
       }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    
-    // Initial check
-    onScroll();
-    setActiveHash(window.location.hash);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
 
-    // Listen for hash changes explicitly
+      if (pathname === "/") {
+        const currentHash = getHomeSectionHash();
+        setActiveHash(currentHash);
+        syncHomeHash(currentHash);
+        return;
+      }
+
+      setActiveHash("");
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    onScroll();
+
     const onHashChange = () => setActiveHash(window.location.hash);
     window.addEventListener("hashchange", onHashChange);
 
@@ -63,17 +88,17 @@ export default function Navigation() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("hashchange", onHashChange);
     };
-  }, []);
+  }, [pathname]);
 
   const isActive = (href: string) => {
     const [path, hash] = href.split("#");
     const activeRoute = pathname === path;
-    
+
     // If it's a hash link, it's active if the route matches AND the hash matches
     if (hash) {
       return activeRoute && activeHash === `#${hash}`;
     }
-    
+
     // If it's the home link ("/")
     if (href === "/") {
       return pathname === "/" && !activeHash;
@@ -92,10 +117,22 @@ export default function Navigation() {
       >
         {/* Colorful top accent bar */}
         <div className="h-1 bg-gradient-to-r from-maroon via-saffron to-gold" />
-        <div className={`backdrop-blur-md border-b border-gold/20 transition-colors duration-300 ${scrolled ? 'bg-ivory/95 shadow-md' : 'bg-ivory/80'}`}>
+        <div
+          className={`backdrop-blur-md border-b border-gold/20 transition-colors duration-300 ${scrolled ? "bg-ivory/95 shadow-md" : "bg-ivory/80"}`}
+        >
           <div className="mx-auto max-w-5xl flex items-center justify-between px-4 py-3">
-            <Link href="/" className="font-display text-2xl text-maroon font-bold tracking-wide">
-              K <span className="text-gold">&</span> H
+            <Link
+              href="/"
+              className="flex items-center"
+            >
+              <Image 
+                src="/images/logo.png" 
+                alt="K&H Logo" 
+                width={160} 
+                height={100} 
+                priority
+                className="object-contain mix-blend-multiply drop-shadow-md"
+              />
             </Link>
 
             {/* Desktop */}
@@ -121,7 +158,11 @@ export default function Navigation() {
               className="sm:hidden p-2 text-maroon"
               aria-label="Toggle menu"
             >
-              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {menuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
 

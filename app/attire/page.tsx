@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/ui/PageHeader";
 import AttireContent from "@/components/AttireContent";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "What to Wear — Karthik & Haritha Wedding",
@@ -18,7 +19,9 @@ export default function AttirePage() {
         subtitle="Embrace colour and tradition — here's a guide to help you dress for the celebration"
       />
       <main>
-        <AttireContent />
+        <Suspense fallback={null}>
+          <AttireContent />
+        </Suspense>
       </main>
       <Footer />
     </>
