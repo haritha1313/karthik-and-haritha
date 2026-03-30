@@ -24,6 +24,7 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
       };
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTimeLeft(calculate());
     const timer = setInterval(() => setTimeLeft(calculate()), 1000);
     return () => clearInterval(timer);

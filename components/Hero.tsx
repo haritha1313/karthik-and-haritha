@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
 import MarigoldString from "./ui/MarigoldString";
-import DiyaIcon from "./ui/DiyaIcon";
 import TempleBells from "./ui/TempleBells";
 import { ChevronDown } from "lucide-react";
 
@@ -12,7 +11,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Luxury Kanjivaram Silk Background */}
       <div className="absolute inset-0 bg-kanjivaram z-0" />
-      
+
       {/* Warm color overlay to enhance richness instead of dulling it */}
       <div className="absolute inset-0 bg-gradient-to-br from-maroon/10 to-gold/5 mix-blend-multiply z-0 pointer-events-none" />
 
@@ -21,16 +20,51 @@ export default function Hero() {
         <svg viewBox="0 0 200 200" fill="none">
           <path d="M0,0 L200,0 L0,200Z" fill="#D4A017" opacity="0.15" />
           <path d="M0,0 L120,0 L0,120Z" fill="#9B1B30" opacity="0.2" />
-          <circle cx="20" cy="20" r="30" fill="none" stroke="#D4A017" strokeWidth="2" opacity="0.5" />
-          <circle cx="20" cy="20" r="15" fill="none" stroke="#F9A825" strokeWidth="1" opacity="0.8" />
+          <circle
+            cx="20"
+            cy="20"
+            r="30"
+            fill="none"
+            stroke="#D4A017"
+            strokeWidth="2"
+            opacity="0.5"
+          />
+          <circle
+            cx="20"
+            cy="20"
+            r="15"
+            fill="none"
+            stroke="#F9A825"
+            strokeWidth="1"
+            opacity="0.8"
+          />
         </svg>
       </div>
-      <div className="absolute top-0 right-0 w-40 h-40 sm:w-64 sm:h-64 opacity-80 z-0 pointer-events-none" style={{ transform: "scaleX(-1)" }}>
+      <div
+        className="absolute top-0 right-0 w-40 h-40 sm:w-64 sm:h-64 opacity-80 z-0 pointer-events-none"
+        style={{ transform: "scaleX(-1)" }}
+      >
         <svg viewBox="0 0 200 200" fill="none">
           <path d="M0,0 L200,0 L0,200Z" fill="#D4A017" opacity="0.15" />
           <path d="M0,0 L120,0 L0,120Z" fill="#9B1B30" opacity="0.2" />
-          <circle cx="20" cy="20" r="30" fill="none" stroke="#D4A017" strokeWidth="2" opacity="0.5" />
-          <circle cx="20" cy="20" r="15" fill="none" stroke="#F9A825" strokeWidth="1" opacity="0.8" />
+          <circle
+            cx="20"
+            cy="20"
+            r="30"
+            fill="none"
+            stroke="#D4A017"
+            strokeWidth="2"
+            opacity="0.5"
+          />
+          <circle
+            cx="20"
+            cy="20"
+            r="15"
+            fill="none"
+            stroke="#F9A825"
+            strokeWidth="1"
+            opacity="0.8"
+          />
         </svg>
       </div>
 
@@ -38,7 +72,10 @@ export default function Hero() {
       <div className="absolute top-0 left-0 right-0 z-10 drop-shadow-lg">
         <MarigoldString />
       </div>
-      <div className="absolute top-4 left-0 right-0 z-10 drop-shadow-xl opacity-80" style={{ transform: "scaleY(1.2)" }}>
+      <div
+        className="absolute top-4 left-0 right-0 z-10 drop-shadow-xl opacity-80"
+        style={{ transform: "scaleY(1.2)" }}
+      >
         <MarigoldString />
       </div>
 
@@ -54,7 +91,7 @@ export default function Hero() {
           <div className="absolute inset-0 rangoli-dots opacity-10 pointer-events-none mix-blend-multiply" />
           {/* Hanging temple bells decoration */}
           <TempleBells />
-          
+
           <div className="relative z-10">
             {/* Subtitle */}
             <motion.p
@@ -83,7 +120,9 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 1.0 }}
                 className="my-1 sm:my-3"
               >
-                <span className="gold-shimmer font-display text-4xl sm:text-5xl font-semibold inline-block">&amp;</span>
+                <span className="gold-shimmer font-display text-4xl sm:text-5xl font-semibold inline-block">
+                  &amp;
+                </span>
               </motion.div>
 
               <motion.h1
@@ -104,10 +143,12 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
             >
               <div className="bg-white/60 backdrop-blur-md text-maroon-dark px-5 py-2.5 rounded-full border-2 border-maroon/20 font-bold tracking-wide shadow-md hover:scale-105 transition-transform">
-                <span className="text-gold mr-2">&#10047;</span> Aug 30, 2026 &middot; Kerala
+                <span className="text-gold mr-2">&#10047;</span> Aug 30, 2026
+                &middot; Kerala
               </div>
               <div className="bg-white/60 backdrop-blur-md text-gold-dark px-5 py-2.5 rounded-full border-2 border-gold/20 font-bold tracking-wide shadow-md hover:scale-105 transition-transform">
-                <span className="text-turmeric mr-2">&#10047;</span> Sep 5, 2026 &middot; Bangalore
+                <span className="text-saffron mr-2">&#10047;</span> Sep 5, 2026
+                &middot; Bangalore
               </div>
             </motion.div>
 
@@ -134,17 +175,25 @@ export default function Hero() {
             href="#events"
             className="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full flex items-center gap-3 text-white font-bold hover:bg-white/30 hover:text-gold-light transition-all duration-300 group cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.3)] border border-white/40"
           >
-            <span className="text-xs sm:text-sm tracking-[0.2em] uppercase text-shadow-sm">Join the Celebration</span>
+            <span className="text-xs sm:text-sm tracking-[0.2em] uppercase text-shadow-sm">
+              Join the Celebration
+            </span>
             <ChevronDown className="w-5 h-5 animate-bounce" strokeWidth={3} />
           </a>
         </motion.div>
       </div>
 
       {/* Bottom marigold border - Double for crowded look */}
-      <div className="absolute bottom-4 left-0 right-0 z-10 drop-shadow-xl opacity-80" style={{ transform: "rotate(180deg) scaleY(1.2)" }}>
+      <div
+        className="absolute bottom-4 left-0 right-0 z-10 drop-shadow-xl opacity-80"
+        style={{ transform: "rotate(180deg) scaleY(1.2)" }}
+      >
         <MarigoldString />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 z-20 drop-shadow-md" style={{ transform: "rotate(180deg)" }}>
+      <div
+        className="absolute bottom-0 left-0 right-0 z-20 drop-shadow-md"
+        style={{ transform: "rotate(180deg)" }}
+      >
         <MarigoldString />
       </div>
     </section>
