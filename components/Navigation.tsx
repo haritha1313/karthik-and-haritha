@@ -128,10 +128,10 @@ export default function Navigation() {
               <Image 
                 src="/images/logo.png" 
                 alt="K&H Logo" 
-                width={160} 
-                height={100} 
+                width={120} 
+                height={75} 
                 priority
-                className="object-contain mix-blend-multiply drop-shadow-md"
+                className="object-contain mix-blend-multiply drop-shadow-md w-auto h-8 scale-[2] sm:scale-[2.2] origin-left"
               />
             </Link>
 
