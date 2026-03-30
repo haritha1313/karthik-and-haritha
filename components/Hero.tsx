@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
-import TempleArch from "./ui/TempleArch";
 import MarigoldString from "./ui/MarigoldString";
 import DiyaIcon from "./ui/DiyaIcon";
+import TempleBells from "./ui/TempleBells";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
@@ -43,7 +43,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Content enclosed in a glassmorphism card */}
-      <div className="relative z-20 w-full max-w-4xl px-4 sm:px-6 pt-16">
+      <div className="relative z-20 w-full max-w-4xl px-4 sm:px-6 pt-20">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -52,35 +52,10 @@ export default function Hero() {
         >
           {/* Subtle inner rangoli texture overlay for the card */}
           <div className="absolute inset-0 rangoli-dots opacity-10 pointer-events-none mix-blend-multiply" />
+          {/* Hanging temple bells decoration */}
+          <TempleBells />
           
           <div className="relative z-10">
-            {/* Temple Arch */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              <TempleArch className="w-full max-w-sm mx-auto mb-[-30px] sm:mb-[-40px] opacity-80 drop-shadow-md text-gold-dark" />
-            </motion.div>
-
-            {/* Diyas flanking */}
-            <div className="flex justify-center items-end gap-16 mb-4 mt-2">
-              <motion.div
-                className="animate-glow drop-shadow-[0_0_15px_rgba(212,160,23,0.8)]"
-                animate={{ opacity: [0.8, 1, 0.8], scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <DiyaIcon size={48} />
-              </motion.div>
-              <motion.div
-                className="animate-glow drop-shadow-[0_0_15px_rgba(212,160,23,0.8)]"
-                animate={{ opacity: [0.8, 1, 0.8], scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-              >
-                <DiyaIcon size={48} />
-              </motion.div>
-            </div>
-
             {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0 }}
@@ -88,7 +63,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-xs sm:text-sm tracking-[0.4em] sm:tracking-[0.6em] uppercase text-maroon-dark font-bold mb-4 bg-gold/10 inline-block px-4 py-1.5 rounded-full border border-gold/30"
             >
-              Together with their families
+              Save the Dates
             </motion.p>
 
             {/* Names - Scaled down */}
@@ -129,7 +104,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
             >
               <div className="bg-white/60 backdrop-blur-md text-maroon-dark px-5 py-2.5 rounded-full border-2 border-maroon/20 font-bold tracking-wide shadow-md hover:scale-105 transition-transform">
-                <span className="text-saffron-light mr-2">&#10047;</span> Aug 30, 2026 &middot; Kerala
+                <span className="text-gold mr-2">&#10047;</span> Aug 30, 2026 &middot; Kerala
               </div>
               <div className="bg-white/60 backdrop-blur-md text-gold-dark px-5 py-2.5 rounded-full border-2 border-gold/20 font-bold tracking-wide shadow-md hover:scale-105 transition-transform">
                 <span className="text-turmeric mr-2">&#10047;</span> Sep 5, 2026 &middot; Bangalore
