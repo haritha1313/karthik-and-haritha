@@ -95,7 +95,7 @@ const travelData = {
         {
           heading: "Alleppey Backwaters",
           badge: "The \"Venice of the East\" — near the venue",
-          badgeColor: "bg-emerald",
+          badgeColor: "bg-gold-dark",
           intro: "Serene canals, lush paddy fields, and a pace of life that invites you to slow down. Whether before or after the wedding, the backwaters are magical.",
           bgClass: "bg-leaf",
           items: [
@@ -170,7 +170,7 @@ const travelData = {
         {
           heading: "Must-See Bangalore",
           badge: "India's Garden City",
-          badgeColor: "bg-emerald",
+          badgeColor: "bg-gold-dark",
           intro: "Bangalore blends old-world charm with modern energy. Pleasant weather year-round, amazing food scene, and a vibrant culture.",
           bgClass: "bg-leaf",
           items: [
@@ -281,9 +281,9 @@ export default function TravelContent() {
               <div className={`text-center py-5 px-6 rounded-2xl border-2 ${
                 isWedding
                   ? "bg-gradient-to-r from-maroon/5 via-saffron/5 to-maroon/5 border-maroon/15"
-                  : "bg-gradient-to-r from-emerald/5 via-teal/5 to-emerald/5 border-emerald/15"
+                  : "bg-gradient-to-r from-gold/5 via-saffron/5 to-gold/5 border-gold/15"
               }`}>
-                <p className={`font-bold text-sm ${isWedding ? "text-maroon" : "text-emerald-dark"}`}>
+                <p className={`font-bold text-sm ${isWedding ? "text-maroon" : "text-gold-dark"}`}>
                   {data.location}
                 </p>
                 <p className="text-brown-light text-xs mt-1">{data.date}</p>
@@ -296,7 +296,7 @@ export default function TravelContent() {
             <div className="mx-auto max-w-5xl">
               <div className="flex items-center gap-3 mb-8">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  isWedding ? "bg-saffron/20 text-saffron" : "bg-emerald/20 text-emerald"
+                  isWedding ? "bg-saffron/20 text-saffron" : "bg-gold/20 text-gold-dark"
                 }`}>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -315,11 +315,11 @@ export default function TravelContent() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.08 }}
                     className={`bg-white rounded-2xl border-2 p-6 hover:shadow-md transition-all ${
-                      isWedding ? "border-saffron/10 hover:border-saffron/30" : "border-emerald/10 hover:border-emerald/30"
+                      isWedding ? "border-saffron/10 hover:border-saffron/30" : "border-gold/10 hover:border-gold/30"
                     }`}
                   >
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${
-                      isWedding ? "bg-saffron/15 text-saffron" : "bg-emerald/15 text-emerald"
+                      isWedding ? "bg-saffron/15 text-saffron" : "bg-gold/15 text-gold-dark"
                     }`}>
                       <IconForType type={info.icon} />
                     </div>
@@ -333,12 +333,12 @@ export default function TravelContent() {
 
           {/* International */}
           <section className={`px-4 sm:px-6 lg:px-8 py-10 ${
-            isWedding ? "bg-gradient-to-r from-emerald/5 via-teal/5 to-emerald/5" : "bg-gradient-to-r from-saffron/5 via-gold/5 to-saffron/5"
+            isWedding ? "bg-gradient-to-r from-gold/5 via-saffron/5 to-gold/5" : "bg-gradient-to-r from-saffron/5 via-gold/5 to-saffron/5"
           }`}>
             <div className="mx-auto max-w-5xl">
               <div className="flex items-center gap-3 mb-8">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  isWedding ? "bg-emerald/20 text-emerald" : "bg-saffron/20 text-saffron"
+                  isWedding ? "bg-gold/20 text-gold-dark" : "bg-saffron/20 text-saffron"
                 }`}>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" strokeWidth="1.5" />
@@ -358,10 +358,10 @@ export default function TravelContent() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.08 }}
                     className={`bg-white rounded-2xl border-2 p-6 ${
-                      isWedding ? "border-emerald/10" : "border-saffron/10"
+                      isWedding ? "border-gold/10" : "border-saffron/10"
                     }`}
                   >
-                    <h3 className={`font-semibold text-lg mb-2 ${isWedding ? "text-emerald-dark" : "text-saffron"}`}>
+                    <h3 className={`font-semibold text-lg mb-2 ${isWedding ? "text-gold-dark" : "text-saffron"}`}>
                       {tip.title}
                     </h3>
                     <p className="text-brown-light text-sm leading-relaxed">{tip.detail}</p>

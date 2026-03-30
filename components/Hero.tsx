@@ -130,7 +130,7 @@ export default function Hero() {
               <div className="bg-white/60 backdrop-blur-md text-maroon-dark px-5 py-2.5 rounded-full border-2 border-maroon/20 font-bold tracking-wide shadow-md hover:scale-105 transition-transform">
                 <span className="text-saffron-light mr-2">&#10047;</span> Aug 30, 2026 &middot; Kerala
               </div>
-              <div className="bg-white/60 backdrop-blur-md text-emerald-dark px-5 py-2.5 rounded-full border-2 border-emerald/20 font-bold tracking-wide shadow-md hover:scale-105 transition-transform">
+              <div className="bg-white/60 backdrop-blur-md text-gold-dark px-5 py-2.5 rounded-full border-2 border-gold/20 font-bold tracking-wide shadow-md hover:scale-105 transition-transform">
                 <span className="text-turmeric mr-2">&#10047;</span> Sep 5, 2026 &middot; Bangalore
               </div>
             </motion.div>

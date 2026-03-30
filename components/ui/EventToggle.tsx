@@ -16,7 +16,7 @@ export default function EventToggle({
       <div className="inline-flex bg-white/80 backdrop-blur-sm rounded-full p-1.5 border-2 border-gold/20 shadow-md">
         {([
           { key: "wedding" as EventType, label: "Wedding", sub: "Kerala · Aug 30", color: "from-maroon to-maroon-dark" },
-          { key: "reception" as EventType, label: "Reception", sub: "Bangalore · Sep 5", color: "from-emerald to-emerald-dark" },
+          { key: "reception" as EventType, label: "Reception", sub: "Bangalore · Sep 5", color: "from-gold-dark to-gold" },
         ]).map((option) => (
           <button
             key={option.key}

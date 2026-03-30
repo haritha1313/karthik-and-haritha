@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Great_Vibes, Montserrat } from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
-const cinzel = Cinzel_Decorative({
-  variable: "--font-display",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -13,13 +13,6 @@ const script = Great_Vibes({
   variable: "--font-script",
   subsets: ["latin"],
   weight: "400",
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -43,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${script.variable} ${montserrat.variable} antialiased font-light`}
+      className={`${cormorant.variable} ${script.variable} antialiased font-light`}
     >
       <body>{children}</body>
     </html>

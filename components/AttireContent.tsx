@@ -13,7 +13,7 @@ const attireData = {
       { color: "#FFFFF0", label: "Ivory", border: "border-gold/40" },
       { color: "#D4A017", label: "Gold", border: "" },
       { color: "#C62828", label: "Red", border: "" },
-      { color: "#1B7A3D", label: "Green", border: "" },
+      { color: "#9B1B30", label: "Maroon", border: "" },
       { color: "#EF6C00", label: "Orange", border: "" },
       { color: "#F9A825", label: "Turmeric", border: "" },
     ],
@@ -73,9 +73,9 @@ const attireData = {
       { color: "#D81B60", label: "Pink", border: "" },
       { color: "#D4A017", label: "Gold", border: "" },
       { color: "#6A1B9A", label: "Purple", border: "" },
-      { color: "#00695C", label: "Teal", border: "" },
+      { color: "#9B1B30", label: "Maroon", border: "" },
       { color: "#EF6C00", label: "Orange", border: "" },
-      { color: "#1B7A3D", label: "Green", border: "" },
+      { color: "#F9A825", label: "Turmeric", border: "" },
       { color: "#1565C0", label: "Royal Blue", border: "" },
     ],
     women: [
@@ -89,7 +89,7 @@ const attireData = {
         title: "Lehenga or Anarkali",
         tag: "Party Ready",
         illustration: "anarkali",
-        desc: "A gorgeous lehenga or flowing anarkali in jewel tones — perfect for the dance floor and photos. Think emerald, magenta, royal blue.",
+        desc: "A gorgeous lehenga or flowing anarkali in jewel tones — perfect for the dance floor and photos. Think ruby, magenta, royal blue.",
       },
       {
         title: "Cocktail Dress or Gown",
@@ -103,7 +103,7 @@ const attireData = {
         title: "Sherwani or Bandhgala",
         tag: "Grand Look",
         illustration: "sherwani",
-        desc: "A sherwani or Nehru jacket in rich tones — maroon, navy, emerald — makes a grand statement. Perfect for photos and the dance floor.",
+        desc: "A sherwani or Nehru jacket in rich tones — maroon, navy, gold — makes a grand statement. Perfect for photos and the dance floor.",
       },
       {
         title: "Festive Kurta",
@@ -234,14 +234,14 @@ export default function AttireContent() {
               {/* Men */}
               <div className={`rounded-2xl p-6 sm:p-8 border-2 ${
                 isWedding
-                  ? "bg-gradient-to-br from-emerald/10 via-teal/5 to-ivory border-emerald/15"
-                  : "bg-gradient-to-br from-teal/10 via-emerald/5 to-ivory border-teal/15"
+                  ? "bg-gradient-to-br from-gold/10 via-saffron/5 to-ivory border-gold/15"
+                  : "bg-gradient-to-br from-saffron/10 via-gold/5 to-ivory border-saffron/15"
               }`}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                    isWedding ? "bg-emerald/15" : "bg-teal/15"
+                    isWedding ? "bg-gold/15" : "bg-saffron/15"
                   }`}>
-                    <svg className="w-6 h-6 text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <svg className="w-6 h-6 text-gold-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>
@@ -255,17 +255,17 @@ export default function AttireContent() {
                       initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.08 }}
-                      className="bg-white/60 rounded-xl p-5 border border-emerald/10"
+                      className="bg-white/60 rounded-xl p-5 border border-gold/10"
                     >
                       <div className="flex gap-4">
-                        <div className="shrink-0 w-20 h-24 sm:w-24 sm:h-28 rounded-xl overflow-hidden shadow-sm border border-emerald/10">
+                        <div className="shrink-0 w-20 h-24 sm:w-24 sm:h-28 rounded-xl overflow-hidden shadow-sm border border-gold/10">
                           <AttireIllustration type={item.illustration} className="w-full h-full" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-wrap items-center gap-2 mb-1.5">
                             <h4 className="font-bold text-maroon">{item.title}</h4>
                             <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${
-                              isWedding ? "bg-emerald/15 text-emerald-dark" : "bg-teal/15 text-teal"
+                              isWedding ? "bg-gold/15 text-gold-dark" : "bg-saffron/15 text-saffron"
                             }`}>
                               {item.tag}
                             </span>
@@ -285,7 +285,7 @@ export default function AttireContent() {
                 isWedding ? "bg-gold/5 border-gold/15" : "bg-saffron/5 border-saffron/15"
               }`}>
                 <h3 className="font-display text-xl text-maroon font-bold mb-4 flex items-center gap-2">
-                  <span className="text-emerald text-lg">&#10003;</span> Tips
+                  <span className="text-gold-dark text-lg">&#10003;</span> Tips
                 </h3>
                 <ul className="space-y-2.5">
                   {data.tips.map((tip, i) => (

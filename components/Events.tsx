@@ -15,7 +15,7 @@ const events = [
     description:
       "Join us for our traditional Hindu wedding ceremony — sacred rituals, vedic mantras, the exchange of garlands, and blessings from our elders. A celebration filled with the warmth of family, the fragrance of jasmine, and the colours of Kerala.",
     accent: "text-gold-light",
-    badge: "border-emerald/40 bg-emerald/20 text-white",
+    badge: "border-gold/40 bg-gold/20 text-white",
     cardStyle: "glass-panel-dark",
     textColor: "text-white",
     textMuted: "text-gray-200",
@@ -29,8 +29,8 @@ const events = [
     date: "September 5, 2026",
     timeLabel: "When",
     time: "7:00 PM onwards",
-    venue: "V Legacy Marriage Hall",
-    address: "Aura Convention Center, Bangalore",
+    venue: "Aura Convention Center",
+    address: "V Legacy, Bangalore",
     mapQuery: "V+Legacy+Marriage+Hall+Aura+Convention+Center+Bangalore",
     description:
       "Celebrate with us in Bangalore! An evening of music, delicious food, and joyful company as we begin our journey together. Come dressed in your finest and dance the night away!",
@@ -66,15 +66,15 @@ export default function Events() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-saffron-light tracking-[0.4em] uppercase text-sm font-bold mb-4 drop-shadow-md"
+                  className="text-maroon tracking-[0.4em] uppercase text-sm font-bold mb-4 drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]"
                 >
                   Save the Dates
                 </motion.p>
-                <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white font-bold mb-6 drop-shadow-lg">
+                <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-maroon-dark font-bold mb-6 drop-shadow-[0_2px_4px_rgba(255,249,240,0.5)]">
                   Our Celebrations
                 </h2>
                 <div className="h-1 w-24 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
-                <p className="text-gray-200 text-lg max-w-md mx-auto font-medium">
+                <p className="text-brown text-lg max-w-md mx-auto font-medium">
                   We would be honoured to have you join us for our wedding festivities.
                 </p>
               </div>
@@ -132,7 +132,7 @@ export default function Events() {
                       rel="noopener noreferrer"
                       className={`inline-flex items-center gap-1.5 ${
                         event.cardStyle === "glass-panel-dark"
-                          ? "bg-emerald text-white hover:bg-emerald-dark"
+                          ? "bg-maroon text-white hover:bg-maroon-dark"
                           : "bg-[#7B1020] text-white hover:bg-[#5a0c18]"
                       } transition-colors font-bold text-xs px-4 py-1.5 rounded-full shadow-sm`}
                     >

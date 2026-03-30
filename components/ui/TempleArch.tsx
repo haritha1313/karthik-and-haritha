@@ -27,10 +27,10 @@ export default function TempleArch({ className = "" }: { className?: string }) {
         {/* Coconut */}
         <circle cx="0" cy="4" r="4" fill="#8B4513" />
         {/* Mango leaves */}
-        <path d="M0,4 C-8,-4 -12,-2 -10,2" stroke="#1B7A3D" strokeWidth="1.5" fill="#2E9650" />
-        <path d="M0,4 C8,-4 12,-2 10,2" stroke="#1B7A3D" strokeWidth="1.5" fill="#2E9650" />
-        <path d="M0,4 C-4,-8 -2,-10 0,-6" stroke="#1B7A3D" strokeWidth="1" fill="#2E9650" />
-        <path d="M0,4 C4,-8 2,-10 0,-6" stroke="#1B7A3D" strokeWidth="1" fill="#2E9650" />
+        <path d="M0,4 C-8,-4 -12,-2 -10,2" stroke="#B8860B" strokeWidth="1.5" fill="#D4A017" />
+        <path d="M0,4 C8,-4 12,-2 10,2" stroke="#B8860B" strokeWidth="1.5" fill="#D4A017" />
+        <path d="M0,4 C-4,-8 -2,-10 0,-6" stroke="#B8860B" strokeWidth="1" fill="#D4A017" />
+        <path d="M0,4 C4,-8 2,-10 0,-6" stroke="#B8860B" strokeWidth="1" fill="#D4A017" />
       </g>
       {/* Hanging bells */}
       {[150, 250, 350, 450].map((x) => (

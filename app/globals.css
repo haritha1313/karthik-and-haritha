@@ -11,9 +11,9 @@
   --color-gold: #D4A017;
   --color-gold-light: #F0C040;
   --color-gold-dark: #B8860B;
-  --color-emerald: #1B7A3D;
-  --color-emerald-light: #2E9650;
-  --color-emerald-dark: #145A2C;
+  --color-emerald: #9B1B30;
+  --color-emerald-light: #C62828;
+  --color-emerald-dark: #7B1020;
   --color-brown: #3E2723;
   --color-brown-light: #6D4C41;
   --color-saffron: #E65100;
@@ -21,13 +21,13 @@
   --color-turmeric: #F9A825;
   --color-pink: #D81B60;
   --color-pink-light: #F06292;
-  --color-teal: #00695C;
+  --color-teal: #D4A017;
   --color-red: #C62828;
   --color-orange: #EF6C00;
   --color-temple-red: #B71C1C;
-  --font-display: var(--font-display);
+  --font-display: var(--font-cormorant);
   --font-script: var(--font-script);
-  --font-body: var(--font-body);
+  --font-body: var(--font-cormorant);
 }
 
 html {
@@ -76,7 +76,7 @@ body {
 }
 
 .bg-leaf {
-  background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 50%, #FFF9F0 100%);
+  background: linear-gradient(135deg, #FFF3E0 0%, #FEF0CD 50%, #FFF9F0 100%);
 }
 
 .bg-saffron-wash {

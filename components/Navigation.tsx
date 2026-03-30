@@ -90,7 +90,7 @@ export default function Navigation() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       >
         {/* Colorful top accent bar */}
-        <div className="h-1 bg-gradient-to-r from-maroon via-saffron to-emerald" />
+        <div className="h-1 bg-gradient-to-r from-maroon via-saffron to-gold" />
         <div className={`backdrop-blur-md border-b border-gold/20 transition-colors duration-300 ${scrolled ? 'bg-ivory/95 shadow-md' : 'bg-ivory/80'}`}>
           <div className="mx-auto max-w-5xl flex items-center justify-between px-4 py-3">
             <Link href="/" className="font-display text-2xl text-maroon font-bold tracking-wide">

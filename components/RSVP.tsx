@@ -68,7 +68,7 @@ export default function RSVP() {
           <p className="text-gray-800 font-semibold text-lg md:text-xl max-w-md mx-auto leading-relaxed">
             We&apos;ve received your RSVP and can&apos;t wait to celebrate with you!
           </p>
-          <div className="mt-10 inline-flex items-center gap-3 bg-gradient-to-r from-emerald-light to-emerald text-white px-8 py-4 rounded-full text-base font-bold shadow-lg shadow-emerald/30 border border-emerald-light/50">
+          <div className="mt-10 inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-white px-8 py-4 rounded-full text-base font-bold shadow-lg shadow-gold/30 border border-gold-light/50">
             <span className="text-xl">&#10003;</span> See you at the wedding!
           </div>
         </motion.div>
@@ -151,7 +151,7 @@ export default function RSVP() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { label: "Wedding", sub: "Kerala on 30th Aug", bg: "bg-maroon" },
-                  { label: "Reception", sub: "Bangalore on 5th Sep", bg: "bg-emerald" },
+                  { label: "Reception", sub: "Bangalore on 5th Sep", bg: "bg-gold-dark" },
                   { label: "Both!", sub: "All Festivities", bg: "bg-gradient-to-r from-saffron to-gold" },
                 ].map((option) => {
                   const value = option.label === "Both!" ? "Both" : `${option.label} (${option.sub})`;
